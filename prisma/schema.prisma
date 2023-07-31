@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  profile Profile[]
+  category Category[]
+  name String
+  email String
+  password String
+  phone String
+  birthDate DateTime
+  status Status @default(ACTIVE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted Boolean @default(false)
+}
+
+model Profile{
+  id Int @id @default(autoincrement())
+  user   User   @relation(fields: [idUser], references: [id])
+  idUser Int
+  name String
+  birthDate DateTime
+  status Status @default(ACTIVE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted Boolean @default(false)
+}
+
+model Category{
+  id Int @id @default(autoincrement())
+  user   User   @relation(fields: [idUser], references: [id])
+  idUser Int
+  word Word[]
+  name String
+  status Status @default(ACTIVE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted Boolean @default(false)
+}
+
+model Word{
+  id Int @id @default(autoincrement())
+  category Category @relation(fields: [idCategory], references: [id])
+  idCategory Int
+  name String
+  status Status @default(ACTIVE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted Boolean @default(false)
+}
+
+//enum status config
+enum Status {
+  ACTIVE
+  DISABLE
+  BLOCK
+}

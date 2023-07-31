@@ -1,0 +1,25 @@
+{
+  "name": "express-atypical",
+  "version": "1.0.0",
+  "description": "api express-atypical-project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Matheus Oliveira, Caroline Zambilo, Nicolas Campos, Gabriel Henrique",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.15.0",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "prisma": "^4.15.0"
+  }
+}
