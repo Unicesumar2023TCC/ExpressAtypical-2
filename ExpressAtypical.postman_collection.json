@@ -196,7 +196,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/profile/3",
+							"raw": "http://localhost:3000/profile/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -204,7 +204,7 @@
 							"port": "3000",
 							"path": [
 								"profile",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -348,7 +348,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Familia",
+									"value": "Animais",
 									"type": "text"
 								},
 								{
@@ -534,8 +534,12 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": {
-							"raw": "http://localhost:3000/word/3",
+							"raw": "http://localhost:3000/word/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -543,7 +547,7 @@
 							"port": "3000",
 							"path": [
 								"word",
-								"3"
+								"4"
 							]
 						}
 					},
