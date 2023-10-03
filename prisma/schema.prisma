@@ -34,6 +34,7 @@ model Profile {
   name      String
   birthDate DateTime
   status    Status   @default(ACTIVE)
+  type TypeProfile @default(Responsible)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   deleted   Boolean  @default(false)

@@ -15,7 +15,7 @@ module.exports = class User {
     }
 
     static async insertNewUser(data){
-        if((data.name).length > 0 && (data.email).length > 0 && (data.password).length > 0 && (data.phone).length > 0 && (data.birthdate)){
+        if((data.name).length > 0 && (data.email).length > 0 && (data.password).length > 0 && (data.phone).length > 0 && (data.birthDate)){
             if(await this.checkIfEmailExist(data.email) === false){
                 return await UsersModel.insertNewUser(data);
             }

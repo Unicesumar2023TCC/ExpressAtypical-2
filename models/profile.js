@@ -20,6 +20,7 @@ module.exports = class Profile {
                 idUser: parseInt(data.idUser),
                 name: data.name,
                 birthDate: data.birthDate,
+                type: data.type
             }
         })
     }
@@ -33,6 +34,7 @@ module.exports = class Profile {
                 name: data.name,
                 birthDate: data.birthDate,
                 status: data.status,
+                type: data.type
             }
         })
     }

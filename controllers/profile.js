@@ -11,7 +11,6 @@ module.exports = class Profile {
             return await ProfileModel.insertNewProfile(data)
         }
         return false
-        
     }
 
     static async updateProfile(data){
