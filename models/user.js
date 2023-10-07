@@ -31,7 +31,7 @@ module.exports = class User {
     }
 
     static async getUserById(id){
-        return await prisma.user.findMany({
+        return await prisma.user.findUnique({
             where: {
                 id: parseInt(id),
             },
