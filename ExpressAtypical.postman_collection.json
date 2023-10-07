@@ -22,12 +22,12 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "dasdasds@gmail.comdasdas",
+									"value": "maaath@gmail.comdasdasas",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "senha123123",
+									"value": "senha123",
 									"type": "text"
 								}
 							]
@@ -54,7 +54,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTE3NTIsImV4cCI6MTY5NzI5NjU1Mn0.J_muD7OBYQcaRXjW0-RoTbloa5QfL5DDK92byJ9HO8Q",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTI4ODcsImV4cCI6MTY5NzI5NzY4N30.IGdkNiHH9am1F0lhx2e8ebaTK1Psjrp0aY5jdj3RsIU",
 									"type": "string"
 								}
 							]
@@ -84,7 +84,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6ImRhc2Rhc2RzQGdtYWlsLmNvbWRhc2RhcyIsInBhc3N3b3JkIjoiJDJiJDEwJE5XMEFNN2VhdXNoNjNYNDRvbmY2RGV1cC5SSG9QR1pPVlVuTWhISC5ZelRVNmFjYlVJaklXIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJSZXNwb25zaWJsZSIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2ODM5NjcsImV4cCI6MTY5NzI4ODc2N30.RHI_pSmVxfbKharMd4MBqYgYJtvsN73NvwwRcB0RrAY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6ImRhc2Rhc2RzQGdtYWlsLmNvbWRhc2RhcyIsInBhc3N3b3JkIjoiJDJiJDEwJE5XMEFNN2VhdXNoNjNYNDRvbmY2RGV1cC5SSG9QR1pPVlVuTWhISC5ZelRVNmFjYlVJaklXIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJSZXNwb25zaWJsZSIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2ODg0MjQsImV4cCI6MTY5NzI5MzIyNH0.t5EMwCqS-LG7Hu14OljFQOkjiUXicq7ec7zd4fumT9g",
 									"type": "string"
 								}
 							]
@@ -120,12 +120,12 @@
 								},
 								{
 									"key": "email",
-									"value": "dasdasds@gmail.comdasdas",
+									"value": "maaath@gmail.comdasdasas",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "senha123123",
+									"value": "senha123",
 									"type": "text"
 								},
 								{
@@ -157,6 +157,16 @@
 				{
 					"name": "Editar Usuário",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6ImRhc2Rhc2RzQGdtYWlsLmNvbWRhc2RhcyIsInBhc3N3b3JkIjoiJDJiJDEwJE5XMEFNN2VhdXNoNjNYNDRvbmY2RGV1cC5SSG9QR1pPVlVuTWhISC5ZelRVNmFjYlVJaklXIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJSZXNwb25zaWJsZSIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2ODg0MjQsImV4cCI6MTY5NzI5MzIyNH0.t5EMwCqS-LG7Hu14OljFQOkjiUXicq7ec7zd4fumT9g",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -211,10 +221,20 @@
 				{
 					"name": "Deletar usuário",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hdG1oZXVzc0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRpSDAzakhKVEJtbi5HaGNaOFZsdGZPQnptc0h6Vy4vWmJoOUFnWEZEV0ZiQTRsLkYxakQvVyIsInBob25lIjoiKDQxKTk4Nzg4LTQ0MDQiLCJiaXJ0aERhdGUiOiIyMDIzLTEyLTA1VDAwOjAwOjAwLjAwMFoiLCJzdGF0dXMiOiJBQ1RJVkUiLCJ0eXBlIjoiUmVzcG9uc2libGUiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTAzVDAwOjM4OjQyLjk4NVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTAzVDAwOjM4OjQyLjk4NVoiLCJkZWxldGVkIjpmYWxzZSwiaWF0IjoxNjk2Njg5Nzg1LCJleHAiOjE2OTcyOTQ1ODV9.t4WIpEf9cUsEWEKmdPJ9iwssrtv1ROXeScDr-aow5uo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/user/1",
+							"raw": "http://localhost:3000/user/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -222,7 +242,7 @@
 							"port": "3000",
 							"path": [
 								"user",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -236,6 +256,16 @@
 				{
 					"name": "Buscar Perfil Por userId",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTI4ODcsImV4cCI6MTY5NzI5NzY4N30.IGdkNiHH9am1F0lhx2e8ebaTK1Psjrp0aY5jdj3RsIU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -300,6 +330,16 @@
 				{
 					"name": "Editar Perfil",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTI4ODcsImV4cCI6MTY5NzI5NzY4N30.IGdkNiHH9am1F0lhx2e8ebaTK1Psjrp0aY5jdj3RsIU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -349,6 +389,16 @@
 				{
 					"name": "Deletar Perfil por id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTI4ODcsImV4cCI6MTY5NzI5NzY4N30.IGdkNiHH9am1F0lhx2e8ebaTK1Psjrp0aY5jdj3RsIU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -374,6 +424,16 @@
 				{
 					"name": "Buscar Categorias por usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTI4ODcsImV4cCI6MTY5NzI5NzY4N30.IGdkNiHH9am1F0lhx2e8ebaTK1Psjrp0aY5jdj3RsIU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -428,6 +488,16 @@
 				{
 					"name": "Editar categoria",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTI4ODcsImV4cCI6MTY5NzI5NzY4N30.IGdkNiHH9am1F0lhx2e8ebaTK1Psjrp0aY5jdj3RsIU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -467,6 +537,16 @@
 				{
 					"name": "Deletar Categoria por id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTI4ODcsImV4cCI6MTY5NzI5NzY4N30.IGdkNiHH9am1F0lhx2e8ebaTK1Psjrp0aY5jdj3RsIU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
