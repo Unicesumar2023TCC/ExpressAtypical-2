@@ -113,7 +113,7 @@ module.exports = function(api){
     //get category
     api.get('/category/:id?', async function (request, response){
         try {
-            const category = await CategoryController.getCategoriesByUserId(request.params.id);
+            const category = await CategoryController.getCategoriesByUserId(request.params.id, request.authId);
             response.json(category);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -133,7 +133,7 @@ module.exports = function(api){
     //edit category
     api.put('/category', upload.none(), async function(request, response){
         try {
-            const data = await CategoryController.updateCategory(request.body);
+            const data = await CategoryController.updateCategory(request.body, request.authId);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -143,7 +143,7 @@ module.exports = function(api){
     //delete category
     api.delete('/category/:id?', upload.none(), async function(request, response){
         try {
-            const data = await CategoryController.deleteCategoryById(request.params.id);
+            const data = await CategoryController.deleteCategoryById(request.params.id, request.authId);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });

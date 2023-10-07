@@ -8,7 +8,19 @@ jest.mock('../models/category', () => ({
   deleteCategoryById: jest.fn()
 }));
 
+jest.mock('../models/user', () => ({
+  getAllUsers: jest.fn(),
+  getAllActiveUsers: jest.fn(),
+  getUserById: jest.fn(),
+  insertNewUser: jest.fn(),
+  getActiveUserByEmail: jest.fn(),
+  updateUser: jest.fn(),
+  deleteUserById: jest.fn(),
+  checkUserLogin: jest.fn(),
+}));
+
 const mockCategoryModel = require('../models/category');
+const mockUsersModel = require('../models/user');
 
 test('fail to create new category if name is empty', async () => {
   const data = {
@@ -23,6 +35,8 @@ test('fail to create new category if name is empty', async () => {
   }
 });
 
+
+
 test('block add new category with matching name', async () => {
   const data = {
     idUser: 1,
@@ -35,5 +49,53 @@ test('block add new category with matching name', async () => {
     await Category.insertNewCategory(data);
   } catch (error) {
     expect(error.message).toBe('Categoria já existe para este usuário');
+  }
+});
+
+
+
+test('block get active categories for non-admin user', async () => {
+  const authenticatedUserId = 2;
+  const idUser = 1;
+
+  mockUsersModel.getUserById.mockResolvedValue([{ id: authenticatedUserId, type: 'Responsible' }]);
+
+  try {
+    await Category.getCategoriesByUserId(idUser, authenticatedUserId);
+  } catch (error) {
+    expect(error.message).toBe('Erro ao buscar categorias: Usuário não autorizado');
+  }
+});
+
+
+
+test('block update categorie for non-admin user', async () => {
+  const authenticatedUserId = 2;
+  const data = {
+    idUser: 1,
+    name: 'Familia'
+  };
+
+  mockUsersModel.getUserById.mockResolvedValue([{ id: authenticatedUserId, type: 'Responsible' }]);
+
+  try {
+    await Category.updateCategory(data, authenticatedUserId);
+  } catch (error) {
+    expect(error.message).toBe('Erro ao buscar categorias: Usuário não autorizado');
+  }
+});
+
+
+
+test('block delete categorie for non-admin user', async () => {
+  const authenticatedUserId = 2;
+  const idUser = 1;
+
+  mockUsersModel.getUserById.mockResolvedValue([{ id: authenticatedUserId, type: 'Responsible' }]);
+
+  try {
+    await Category.deleteCategoryById(idUser, authenticatedUserId);
+  } catch (error) {
+    expect(error.message).toBe('Erro ao excluir categoria: Usuário não autorizado');
   }
 });

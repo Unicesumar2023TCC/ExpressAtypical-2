@@ -1,9 +1,24 @@
 const CategoryModel = require('../models/category');
+const UserController = require('./user') 
 
 module.exports = class Category {
 
-    static async getCategoriesByUserId(id){
+    static async getCategoriesByUserId(id, authenticatedId){
         try {
+            if (!authenticatedId) {
+                throw new Error('Usuário não autenticado');
+            }
+
+            if (!id) {
+                throw new Error('ID do usuário é obrigatório');
+            }
+            
+            const authenticatedUser = await UserController.getUserById(authenticatedId)
+
+            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+                throw new Error('Usuário não autorizado')
+            }
+
             return await CategoryModel.getCategoriesByUserId(id);
         } catch (error) {
             throw new Error(`Erro ao buscar categorias: ${error.message}`);
@@ -37,16 +52,40 @@ module.exports = class Category {
         }
     }
 
-    static async updateCategory(data){
+    static async updateCategory(data, authenticatedId){
         try {
+            if (!authenticatedId) {
+                throw new Error('Usuário não autenticado');
+            }
+          
+            const authenticatedUser = await UserController.getUserById(authenticatedId)
+
+            if(authenticatedUser.id != data.id && authenticatedUser.type != 'Admin'){
+                throw new Error('Usuário não autorizado')
+            }
+
             return await CategoryModel.updateCategory(data);
         } catch (error) {
             throw new Error(`Erro ao atualizar categoria: ${error.message}`);
         }
     }
 
-    static async deleteCategoryById(id){
+    static async deleteCategoryById(id, authenticatedId){
         try {
+            if (!authenticatedId) {
+                throw new Error('Usuário não autenticado');
+            }
+
+            if (!id) {
+                throw new Error('ID do usuário é obrigatório');
+            }
+            
+            const authenticatedUser = await UserController.getUserById(authenticatedId)
+
+            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+                throw new Error('Usuário não autorizado')
+            }
+
             return await CategoryModel.deleteCategoryById(id);
         } catch (error) {
             throw new Error(`Erro ao excluir categoria: ${error.message}`);
