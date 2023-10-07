@@ -12,6 +12,9 @@
 				{
 					"name": "Login",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -19,12 +22,12 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "matheus@gmail.com",
+									"value": "dasdasds@gmail.comdasdas",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "senha123",
+									"value": "senha123123",
 									"type": "text"
 								}
 							]
@@ -46,6 +49,46 @@
 				{
 					"name": "Buscar usuários",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hYWF0aEBnbWFpbC5jb21kYXNkYXNhcyIsInBhc3N3b3JkIjoiJDJiJDEwJHdOQWhrejlqa21OeGtJbUhjNXgwdS54d0l6MzBpQkhqZkcxSzdncm9aTGRoUkRET092My5XIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJBZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTU6MTU6NDAuMjQ2WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2OTE3NTIsImV4cCI6MTY5NzI5NjU1Mn0.J_muD7OBYQcaRXjW0-RoTbloa5QfL5DDK92byJ9HO8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retorna usuário logado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6ImRhc2Rhc2RzQGdtYWlsLmNvbWRhc2RhcyIsInBhc3N3b3JkIjoiJDJiJDEwJE5XMEFNN2VhdXNoNjNYNDRvbmY2RGV1cC5SSG9QR1pPVlVuTWhISC5ZelRVNmFjYlVJaklXIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJSZXNwb25zaWJsZSIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2ODM5NjcsImV4cCI6MTY5NzI4ODc2N30.RHI_pSmVxfbKharMd4MBqYgYJtvsN73NvwwRcB0RrAY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -77,12 +120,12 @@
 								},
 								{
 									"key": "email",
-									"value": "matheus@gmail.com",
+									"value": "dasdasds@gmail.comdasdas",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "senha123",
+									"value": "senha123123",
 									"type": "text"
 								},
 								{
@@ -92,7 +135,7 @@
 								},
 								{
 									"key": "birthDate",
-									"value": "2023-12-05",
+									"value": "2020-12-05",
 									"type": "text"
 								}
 							]
@@ -121,7 +164,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Matheus editasdo",
+									"value": "Matheus editado",
 									"type": "text"
 								},
 								{
@@ -232,6 +275,11 @@
 									"key": "idUser",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Kid",
+									"type": "text"
 								}
 							]
 						},
@@ -274,7 +322,12 @@
 								},
 								{
 									"key": "id",
-									"value": "2",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Kid",
 									"type": "text"
 								}
 							]
@@ -299,7 +352,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/profile/1",
+							"raw": "http://localhost:3000/profile/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -307,7 +360,7 @@
 							"port": "3000",
 							"path": [
 								"profile",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -348,7 +401,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Animais",
+									"value": "Animaiss",
 									"type": "text"
 								},
 								{
@@ -382,7 +435,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Comida",
+									"value": "Comidas",
 									"type": "text"
 								},
 								{
@@ -392,7 +445,7 @@
 								},
 								{
 									"key": "id",
-									"value": "1",
+									"value": "13",
 									"type": "text"
 								}
 							]
@@ -417,7 +470,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/category/3",
+							"raw": "http://localhost:3000/category/13",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -425,7 +478,7 @@
 							"port": "3000",
 							"path": [
 								"category",
-								"3"
+								"13"
 							]
 						}
 					},
@@ -466,7 +519,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Mãe",
+									"value": "Filho",
 									"type": "text"
 								},
 								{
@@ -500,7 +553,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Irmão",
+									"value": "Irmãos",
 									"type": "text"
 								},
 								{
@@ -510,7 +563,7 @@
 								},
 								{
 									"key": "id",
-									"value": "3",
+									"value": "5",
 									"type": "text"
 								}
 							]
@@ -539,7 +592,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://localhost:3000/word/4",
+							"raw": "http://localhost:3000/word/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -547,7 +600,7 @@
 							"port": "3000",
 							"path": [
 								"word",
-								"4"
+								"5"
 							]
 						}
 					},
