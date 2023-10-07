@@ -25,6 +25,19 @@ module.exports = class Category {
         }
     }
 
+    static async getcategorieById(id){
+        try {
+
+            if (!id) {
+                throw new Error('ID do usuário é obrigatório');
+            }
+
+            return await CategoryModel.getCategorieById(id);
+        } catch (error) {
+            throw new Error(`Erro ao buscar categorias: ${error.message}`);
+        }
+    }
+
     static async insertNewCategory(data){
         if(!data.name) {
             throw new Error('Nome da categoria inválido');

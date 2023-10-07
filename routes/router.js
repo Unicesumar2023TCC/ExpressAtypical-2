@@ -8,7 +8,7 @@ module.exports = function(api){
 
     const UserController = require('../controllers/user');
     const WordController = require('../controllers/word');
-    const ProfileModel = require('../models/profile');
+    const ProfileController = require('../controllers/profile');
     const CategoryController = require('../controllers/category');
 
     const verifyToken = require('../middlewares/auth');
@@ -155,7 +155,7 @@ module.exports = function(api){
     //GET PROFILE
     api.get('/profile/:id?', async function (request, response){
         try {
-            const profile = await ProfileModel.getProfilesByUserId(request.params.id);
+            const profile = await ProfileController.getProfilesByUserId(request.params.id, request.authId);
             response.json(profile);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -166,7 +166,7 @@ module.exports = function(api){
     api.post('/profile', upload.none(), async function(request, response){
         try {
             request.body.birthDate = new Date(request.body.birthDate);
-            const data = await ProfileModel.insertNewProfile(request.body);
+            const data = await ProfileController.insertNewProfile(request.body);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -177,7 +177,7 @@ module.exports = function(api){
     api.put('/profile', upload.none(), async function(request, response){
         try {
             request.body.birthDate = new Date(request.body.birthDate);
-            const data = await ProfileModel.updateProfile(request.body);
+            const data = await ProfileController.updateProfile(request.body, request.authId);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -187,7 +187,7 @@ module.exports = function(api){
     //delete profile
     api.delete('/profile/:id?', upload.none(), async function(request, response){
         try {
-            const data = await ProfileModel.deleteProfileById(request.params.id);
+            const data = await ProfileController.deleteProfileById(request.params.id, request.authId);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -199,7 +199,7 @@ module.exports = function(api){
     //get word
     api.get('/word/:id?', async function (request, response){
         try {
-            const word = await WordController.getWordsByCategoryId(request.params.id);
+            const word = await WordController.getWordsByCategoryId(request.params.id, request.authId);
             response.json(word);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -219,7 +219,7 @@ module.exports = function(api){
     //edit word
     api.put('/word', upload.none(), async function(request, response){
         try {
-            const data = await WordController.updateWordById(request.body);
+            const data = await WordController.updateWordById(request.body, request.authId);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });
@@ -229,7 +229,7 @@ module.exports = function(api){
     //delete word
     api.delete('/word/:id?', upload.none(), async function(request, response){
         try {
-            const data = await WordController.deleteWordById(request.params.id);
+            const data = await WordController.deleteWordById(request.params.id, request.authId);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });

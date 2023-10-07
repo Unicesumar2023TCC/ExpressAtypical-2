@@ -14,6 +14,14 @@ module.exports = class Category {
         });
     }
 
+    static async getCategorieById(id){
+        return await prisma.category.findUnique({
+            where: {
+                id: parseInt(id)
+            }
+        });
+    }
+
     static async getCategoryByNameAndUser(data){
         return await prisma.category.findMany({
             where: {

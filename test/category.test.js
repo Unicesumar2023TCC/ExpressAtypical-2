@@ -9,14 +9,7 @@ jest.mock('../models/category', () => ({
 }));
 
 jest.mock('../models/user', () => ({
-  getAllUsers: jest.fn(),
-  getAllActiveUsers: jest.fn(),
   getUserById: jest.fn(),
-  insertNewUser: jest.fn(),
-  getActiveUserByEmail: jest.fn(),
-  updateUser: jest.fn(),
-  deleteUserById: jest.fn(),
-  checkUserLogin: jest.fn(),
 }));
 
 const mockCategoryModel = require('../models/category');

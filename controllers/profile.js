@@ -1,9 +1,24 @@
 const ProfileModel = require('../models/profile');
+const UserController = require('./user') 
 
 module.exports = class Profile {
 
-    static async getProfilesByUserId(id){
+    static async getProfilesByUserId(id, authenticatedId){
         try {
+            if (!authenticatedId) {
+                throw new Error('Usuário não autenticado');
+            }
+
+            if (!id) {
+                throw new Error('ID do usuário é obrigatório');
+            }
+            
+            const authenticatedUser = await UserController.getUserById(authenticatedId)
+
+            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+                throw new Error('Usuário não autorizado')
+            }
+
             return await ProfileModel.getProfilesByUserId(id);
         } catch (error) {
             throw new Error(`Erro ao buscar perfis: ${error.message}`);
@@ -30,16 +45,40 @@ module.exports = class Profile {
         }
     }
 
-    static async updateProfile(data){
+    static async updateProfile(data, authenticatedId){
         try {
+            if (!authenticatedId) {
+                throw new Error('Usuário não autenticado');
+            }
+          
+            const authenticatedUser = await UserController.getUserById(authenticatedId)
+
+            if(authenticatedUser.id != data.id && authenticatedUser.type != 'Admin'){
+                throw new Error('Usuário não autorizado')
+            }
+
             return await ProfileModel.updateProfile(data);
         } catch (error) {
             throw new Error(`Erro ao atualizar perfil: ${error.message}`);
         }
     }
 
-    static async deleteProfileById(id){
+    static async deleteProfileById(id, authenticatedId){
         try {
+            if (!authenticatedId) {
+                throw new Error('Usuário não autenticado');
+            }
+
+            if (!id) {
+                throw new Error('ID do usuário é obrigatório');
+            }
+            
+            const authenticatedUser = await UserController.getUserById(authenticatedId)
+
+            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+                throw new Error('Usuário não autorizado')
+            }
+
             return await ProfileModel.deleteProfileById(id);
         } catch (error) {
             throw new Error(`Erro ao excluir perfil: ${error.message}`);
