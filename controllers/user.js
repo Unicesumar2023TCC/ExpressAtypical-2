@@ -1,4 +1,5 @@
 const UsersModel = require('../models/user');
+const Log = require('../models/log');
 
 module.exports = class User {
 
@@ -85,7 +86,14 @@ module.exports = class User {
                 throw new Error('Email já está em uso');
             }
     
-            return await UsersModel.insertNewUser(data);
+            let response = await UsersModel.insertNewUser(data);
+            Log.addLog({
+                origem: 'User',
+                action: 'create',
+                idReference: response.id,
+                idUser: response.id
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao inserir novo usuário: ${error.message}`);
         }
@@ -115,13 +123,19 @@ module.exports = class User {
                 throw new Error('Usuário não autorizado')
             }
 
-            return data
             if (!data.id) {
                 throw new Error('ID do usuário é obrigatório');
             }
             
 
-            return await UsersModel.updateUser(data);
+            let response = await UsersModel.updateUser(data);
+            Log.addLog({
+                origem: 'User',
+                action: 'update',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao atualizar usuário: ${error.message}`);
         }
@@ -143,7 +157,15 @@ module.exports = class User {
                 throw new Error('Usuário não autorizado')
             }
 
-            return await UsersModel.deleteUserById(id);
+            let response = await UsersModel.deleteUserById(id);
+
+            Log.addLog({
+                origem: 'User',
+                action: 'delete',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao excluir usuário: ${error.message}`);
         }

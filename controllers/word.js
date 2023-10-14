@@ -1,7 +1,7 @@
 const WordModel = require('../models/word');
 const UserController = require('./user') 
 const CategoryController = require('./category') 
-
+const Log = require('../models/log');
 
 module.exports = class Word {
 
@@ -16,7 +16,6 @@ module.exports = class Word {
             }
             
             const authenticatedUser = await UserController.getUserById(authenticatedId)
-
             const category = await CategoryController.getcategorieById(idCategory)
 
             if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
@@ -39,7 +38,14 @@ module.exports = class Word {
                 throw new Error('Palavra já existe para esta categoria');
             }
     
-            return await WordModel.insertNewWord(data);
+            let response = await WordModel.insertNewWord(data);
+            Log.addLog({
+                origem: 'Word',
+                action: 'create',
+                idReference: response.id,
+                idUser: data.idUser
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao inserir nova palavra: ${error.message}`);
         }
@@ -56,12 +62,21 @@ module.exports = class Word {
             }
           
             const authenticatedUser = await UserController.getUserById(authenticatedId)
+            const category = await CategoryController.getcategorieById(data.id);
 
-            if(authenticatedUser.id != data.id && authenticatedUser.type != 'Admin'){
+            if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
 
-            return await WordModel.updateWordById(data);
+            let response = await WordModel.updateWordById(data);
+
+            Log.addLog({
+                origem: 'Word',
+                action: 'update',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao atualizar palavra: ${error.message}`);
         }
@@ -78,12 +93,21 @@ module.exports = class Word {
             }
             
             const authenticatedUser = await UserController.getUserById(authenticatedId)
+            const word = await WordModel.getWordById(id)
+            const category = await CategoryController.getcategorieById(word.idCategory)
 
-            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+            if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
 
-            return await WordModel.deleteWordById(id);
+            let response = await WordModel.deleteWordById(id);
+            Log.addLog({
+                origem: 'Word',
+                action: 'delete',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao excluir palavra: ${error.message}`);
         }

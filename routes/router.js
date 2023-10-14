@@ -10,6 +10,7 @@ module.exports = function(api){
     const WordController = require('../controllers/word');
     const ProfileController = require('../controllers/profile');
     const CategoryController = require('../controllers/category');
+    const LogController = require('../controllers/log');
 
     const verifyToken = require('../middlewares/auth');
 
@@ -33,19 +34,25 @@ module.exports = function(api){
     });
     
     //login user
-    api.post('/login', upload.none(), async function(request, response){
+    api.post('/login', async function(request, response) {
         try {
+
             const data = await UserController.checkUserLogin(request.body.email);
-            if(data.length > 0){
+            
+            if (data.length > 0) {
                 bcrypt.compare(request.body.password, data[0].password, function(err, result) {
-                    if(result){
-                        token = jwt.sign(data[0], "MySecretKey", {expiresIn: '7d'});
-                        response.json({token: token});
-                    }else{
+                    if (result) {
+                        const token = jwt.sign(data[0], "MySecretKey", { expiresIn: '7d' });
+                        
+                        // Adicione o token ao cookie
+                        response.cookie('jwt', token, { maxAge: 7 * 24 * 60 * 60 * 1000, httpOnly: true }); // MaxAge define a validade em milissegundos
+    
+                        response.json({ token: token });
+                    } else {
                         response.json('login incorreto');
                     }
                 });
-            }else{
+            } else {
                 response.json('login incorreto');
             }
         } catch (error) {
@@ -55,6 +62,17 @@ module.exports = function(api){
     
     // Middleware para proteger rotas seguintes
     api.use(verifyToken)
+
+    api.post('/logout', function(request, response) {
+        try {
+          // Remova o cookie 'jwt'
+          response.clearCookie('jwt', { httpOnly: true });
+      
+          response.json({ message: 'Logout realizado com sucesso' });
+        } catch (error) {
+          response.status(500).json({ error: error.message });
+        }
+      });
 
     //get authenticated user
     api.get('/user', async function (request, response){
@@ -123,6 +141,7 @@ module.exports = function(api){
     //add new category
     api.post('/category', upload.none(), async function(request, response){
         try {
+            request.body.idUser = request.authId;
             const data = await CategoryController.insertNewCategory(request.body);
             response.json(data);
         } catch (error) {
@@ -166,6 +185,7 @@ module.exports = function(api){
     api.post('/profile', upload.none(), async function(request, response){
         try {
             request.body.birthDate = new Date(request.body.birthDate);
+            request.body.idUser = request.authId;
             const data = await ProfileController.insertNewProfile(request.body);
             response.json(data);
         } catch (error) {
@@ -209,6 +229,7 @@ module.exports = function(api){
     //add new word
     api.post('/word', upload.none(), async function(request, response){
         try {
+            request.body.idUser = request.authId;
             const data = await WordController.insertNewWord(request.body);
             response.json(data);
         } catch (error) {
@@ -235,4 +256,14 @@ module.exports = function(api){
             response.status(500).json({ error: error.message });
         }
     });
+
+    //get logs
+    api.get('/logs', async function (request, response){
+        try {
+            const log = await LogController.getLogs();
+            response.json(log);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    })
 }

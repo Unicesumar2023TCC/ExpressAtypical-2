@@ -13,6 +13,14 @@ module.exports = class Word {
         });
     }
 
+    static async getWordById(id){
+        return await prisma.word.findUnique({
+            where: {
+                id: parseInt(id),
+            }
+        });
+    }
+
     static async insertNewWord(data){
         return await prisma.word.create({
             data: {

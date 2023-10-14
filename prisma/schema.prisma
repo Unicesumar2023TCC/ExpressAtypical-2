@@ -13,7 +13,7 @@ model User {
   category     Category[]
   name         String    @db.VarChar(50)
   email        String    @db.VarChar(50)
-  password     String    @db.VarChar(50)
+  password     String    
   birthDate    DateTime
   phone        String    @db.VarChar(20)
   status       Status    @default(ACTIVE)
@@ -64,12 +64,12 @@ model Word {
 
 model Log {
   id             Int       @id @default(autoincrement())
+  user           User      @relation(fields: [idUser], references: [id])
+  idUser     Int       @map("idUser") // Specify the database column name
+  idReference    Int       
   origem         String    @db.VarChar(50)
   action         String    @db.VarChar(50)
-  message        String    @db.VarChar(50)
   time           DateTime
-  user           User      @relation(fields: [fk_user_id], references: [id])
-  fk_user_id     Int       @map("fk_user_id") // Specify the database column name
 }
 
 enum Status {

@@ -1,19 +1,21 @@
 const express = require('express');
-const bodyparser =  require('body-parser');
+const bodyparser = require('body-parser');
 const cors = require('cors');
-const consign = require('consign')
+const consign = require('consign');
+const cookieParser = require('cookie-parser');
+
 const api = express();
 const porta = 3000;
-const router = express.Router();
 
-
-api.use(cors());
-api.use(bodyparser.urlencoded({extended: true}))
-
-// faz que o consign pegue tudo que está dentro da pasta controllers e jogue para dentro app
+api.use(cors({ origin: 'http://localhost:3001', credentials: true }));
+api.use(bodyparser.json());
+api.use(bodyparser.urlencoded({ extended: true }));
+api.use(cookieParser());
+// faz com que o consign pegue tudo que está dentro da pasta controllers e jogue dentro do app
 consign()
     .include('routes')
-    .into(api)
+    .into(api);
 
-api.listen(porta);
-console.log('API RUN EXPRESS');
+api.listen(porta, () => {
+    console.log('API RUN EXPRESS');
+});

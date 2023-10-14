@@ -1,5 +1,6 @@
 const CategoryModel = require('../models/category');
 const UserController = require('./user') 
+const Log = require('../models/log');
 
 module.exports = class Category {
 
@@ -33,6 +34,7 @@ module.exports = class Category {
             }
 
             return await CategoryModel.getCategorieById(id);
+            
         } catch (error) {
             throw new Error(`Erro ao buscar categorias: ${error.message}`);
         }
@@ -50,7 +52,15 @@ module.exports = class Category {
         }
 
         try {
-            return await CategoryModel.insertNewCategory(data);
+            
+            let response = await CategoryModel.insertNewCategory(data);
+            Log.addLog({
+                origem: 'Category',
+                action: 'Create',
+                idReference: response.id,
+                idUser: data.idUser
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao inserir nova categoria: ${error.message}`);
         }
@@ -72,12 +82,21 @@ module.exports = class Category {
             }
           
             const authenticatedUser = await UserController.getUserById(authenticatedId)
+            const category = await Category.getcategorieById(data.id);
 
-            if(authenticatedUser.id != data.id && authenticatedUser.type != 'Admin'){
+            if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
+            
 
-            return await CategoryModel.updateCategory(data);
+            let response = await CategoryModel.updateCategory(data);
+            Log.addLog({
+                origem: 'Category',
+                action: 'update',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao atualizar categoria: ${error.message}`);
         }
@@ -94,12 +113,20 @@ module.exports = class Category {
             }
             
             const authenticatedUser = await UserController.getUserById(authenticatedId)
+            const category = await Category.getcategorieById(id);
 
-            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+            if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
 
-            return await CategoryModel.deleteCategoryById(id);
+            let response = await CategoryModel.deleteCategoryById(id);
+            Log.addLog({
+                origem: 'Category',
+                action: 'delete',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao excluir categoria: ${error.message}`);
         }

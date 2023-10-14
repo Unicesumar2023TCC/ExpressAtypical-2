@@ -1,5 +1,6 @@
 const ProfileModel = require('../models/profile');
 const UserController = require('./user') 
+const Log = require('../models/log');
 
 module.exports = class Profile {
 
@@ -34,12 +35,19 @@ module.exports = class Profile {
             throw new Error('Usuário inválido');
         }
 
-        if (!data.birthdate) {
+        if (data.birthdate && data.birthdate == '') {
             throw new Error('Data de nascimento inválida');
         }
 
         try {
-            return await ProfileModel.insertNewProfile(data);
+            let response = await ProfileModel.insertNewProfile(data);
+            Log.addLog({
+                origem: 'Profile',
+                action: 'create',
+                idReference: response.id,
+                idUser: data.idUser
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao inserir novo perfil: ${error.message}`);
         }
@@ -57,7 +65,14 @@ module.exports = class Profile {
                 throw new Error('Usuário não autorizado')
             }
 
-            return await ProfileModel.updateProfile(data);
+            let response = await ProfileModel.updateProfile(data);
+            Log.addLog({
+                origem: 'Profile',
+                action: 'update',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao atualizar perfil: ${error.message}`);
         }
@@ -79,7 +94,14 @@ module.exports = class Profile {
                 throw new Error('Usuário não autorizado')
             }
 
-            return await ProfileModel.deleteProfileById(id);
+            let response = await ProfileModel.deleteProfileById(id);
+            Log.addLog({
+                origem: 'Profile',
+                action: 'delete',
+                idReference: response.id,
+                idUser: authenticatedId
+            })
+            return response
         } catch (error) {
             throw new Error(`Erro ao excluir perfil: ${error.message}`);
         }
