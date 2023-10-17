@@ -34,7 +34,7 @@ module.exports = function(api){
     });
     
     //login user
-    api.post('/login', async function(request, response) {
+    api.post('/login', upload.none(), async function(request, response) {
         try {
 
             const data = await UserController.checkUserLogin(request.body.email);
