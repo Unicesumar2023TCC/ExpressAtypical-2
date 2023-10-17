@@ -20,6 +20,7 @@ module.exports = class Log {
         return logsPtBR;
     }
 
+    
     static async addLog(data){
         return await prisma.log.create({
             data: {

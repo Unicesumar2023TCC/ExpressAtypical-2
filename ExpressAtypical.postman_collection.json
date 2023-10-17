@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9155260c-f237-423c-9d0e-445a1b911568",
+		"_postman_id": "515a727f-03f3-403a-b546-aa7ad11e64bc",
 		"name": "ExpressAtypical",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23533980"
@@ -18,19 +18,13 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "maaath@gmail.comdasdasas",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "senha123",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\r\n    email:  'matheus',\r\n    password '123'\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://localhost:3000/login",
@@ -77,14 +71,14 @@
 					"response": []
 				},
 				{
-					"name": "retorna usuário logado",
+					"name": "Retorna usuário logado",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6ImRhc2Rhc2RzQGdtYWlsLmNvbWRhc2RhcyIsInBhc3N3b3JkIjoiJDJiJDEwJE5XMEFNN2VhdXNoNjNYNDRvbmY2RGV1cC5SSG9QR1pPVlVuTWhISC5ZelRVNmFjYlVJaklXIiwicGhvbmUiOiIoNDEpOTg3ODgtNDQwNCIsImJpcnRoRGF0ZSI6IjIwMjAtMTItMDVUMDA6MDA6MDAuMDAwWiIsInN0YXR1cyI6IkFDVElWRSIsInR5cGUiOiJSZXNwb25zaWJsZSIsImNyZWF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMTAtMDdUMTM6MDA6NDYuMDY0WiIsImRlbGV0ZWQiOmZhbHNlLCJpYXQiOjE2OTY2ODg0MjQsImV4cCI6MTY5NzI5MzIyNH0.t5EMwCqS-LG7Hu14OljFQOkjiUXicq7ec7zd4fumT9g",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hdGhldXNAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkWjdrQnplOWZscklaY25WbzF5d0pvZUphSjQ4WUNEZS9XbzN3Z1FOTHRBaFowQzN2VEtMejYiLCJiaXJ0aERhdGUiOiIyMDIwLTEyLTA1VDAwOjAwOjAwLjAwMFoiLCJwaG9uZSI6Iig0MSk5ODc4OC00NDA0Iiwic3RhdHVzIjoiQUNUSVZFIiwidHlwZSI6IlJlc3BvbnNpYmxlIiwiY3JlYXRlZEF0IjoiMjAyMy0xMC0xMFQwMTo0NDo1Ni40NjBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMC0xMFQwMTo0NDo1Ni40NjBaIiwiZGVsZXRlZCI6ZmFsc2UsImlhdCI6MTY5Njk3NTUzMiwiZXhwIjoxNjk3NTgwMzMyfQ.3Kggebia3TZiLt1xAW39FULGMFJ7a3JW2g3a3oFRrB4",
 									"type": "string"
 								}
 							]
@@ -120,7 +114,7 @@
 								},
 								{
 									"key": "email",
-									"value": "maaath@gmail.comdasdasas",
+									"value": "matheus@gmail.com",
 									"type": "text"
 								},
 								{
@@ -454,6 +448,16 @@
 				{
 					"name": "Nova categoria",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik1hdGhldXMiLCJlbWFpbCI6Im1hdGhldXNAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkWjdrQnplOWZscklaY25WbzF5d0pvZUphSjQ4WUNEZS9XbzN3Z1FOTHRBaFowQzN2VEtMejYiLCJiaXJ0aERhdGUiOiIyMDIwLTEyLTA1VDAwOjAwOjAwLjAwMFoiLCJwaG9uZSI6Iig0MSk5ODc4OC00NDA0Iiwic3RhdHVzIjoiQUNUSVZFIiwidHlwZSI6IlJlc3BvbnNpYmxlIiwiY3JlYXRlZEF0IjoiMjAyMy0xMC0xMFQwMTo0NDo1Ni40NjBaIiwidXBkYXRlZEF0IjoiMjAyMy0xMC0xMFQwMTo0NDo1Ni40NjBaIiwiZGVsZXRlZCI6ZmFsc2UsImlhdCI6MTY5NjkwMjQxMywiZXhwIjoxNjk3NTA3MjEzfQ.I99y7LyhoT8XtNebdpSPogKkLdwRgXAUMerwoKOrkIg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {

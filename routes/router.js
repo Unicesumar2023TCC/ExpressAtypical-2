@@ -256,6 +256,7 @@ module.exports = function(api){
             response.status(500).json({ error: error.message });
         }
     });
+    
 
     //get logs
     api.get('/logs', async function (request, response){
