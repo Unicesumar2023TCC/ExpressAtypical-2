@@ -45,7 +45,7 @@ module.exports = function(api){
                         const token = jwt.sign(data[0], "MySecretKey", { expiresIn: '7d' });
                         
                         // Adicione o token ao cookie
-                        response.cookie('jwt', token, { maxAge: 7 * 24 * 60 * 60 * 1000, httpOnly: true }); // MaxAge define a validade em milissegundos
+                        response.cookie('jwt', token, { maxAge: 7 * 24 * 60 * 60 * 1000, httpOnly: false }); // MaxAge define a validade em milissegundos
     
                         response.json({ token: token });
                     } else {

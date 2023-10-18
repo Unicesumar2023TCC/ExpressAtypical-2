@@ -18,30 +18,30 @@
 
 */
 -- DropForeignKey
-ALTER TABLE `log` DROP FOREIGN KEY `Log_fk_user_id_fkey`;
+ALTER TABLE `Log` DROP FOREIGN KEY `Log_fk_user_id_fkey`;
 
 -- AlterTable
-ALTER TABLE `category` MODIFY `name` VARCHAR(50) NOT NULL,
+ALTER TABLE `Category` MODIFY `name` VARCHAR(50) NOT NULL,
     MODIFY `voiceUrl` VARCHAR(50) NULL;
 
 -- AlterTable
-ALTER TABLE `log` DROP COLUMN `fk_user_id`,
+ALTER TABLE `Log` DROP COLUMN `fk_user_id`,
     ADD COLUMN `idUser` INTEGER NOT NULL,
     MODIFY `origem` VARCHAR(50) NOT NULL,
     MODIFY `action` VARCHAR(50) NOT NULL,
     MODIFY `message` VARCHAR(50) NOT NULL;
 
 -- AlterTable
-ALTER TABLE `profile` MODIFY `name` VARCHAR(50) NOT NULL;
+ALTER TABLE `Profile` MODIFY `name` VARCHAR(50) NOT NULL;
 
 -- AlterTable
-ALTER TABLE `user` MODIFY `name` VARCHAR(50) NOT NULL,
+ALTER TABLE `User` MODIFY `name` VARCHAR(50) NOT NULL,
     MODIFY `email` VARCHAR(50) NOT NULL,
     MODIFY `password` VARCHAR(50) NOT NULL,
     MODIFY `phone` VARCHAR(20) NOT NULL;
 
 -- AlterTable
-ALTER TABLE `word` MODIFY `name` VARCHAR(50) NOT NULL,
+ALTER TABLE `Word` MODIFY `name` VARCHAR(50) NOT NULL,
     MODIFY `voiceUrl` VARCHAR(50) NULL;
 
 -- AddForeignKey

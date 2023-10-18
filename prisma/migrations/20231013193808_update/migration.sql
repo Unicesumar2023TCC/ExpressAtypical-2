@@ -6,5 +6,5 @@
 
 */
 -- AlterTable
-ALTER TABLE `log` DROP COLUMN `message`,
+ALTER TABLE `Log` DROP COLUMN `message`,
     ADD COLUMN `idReference` INTEGER NOT NULL;

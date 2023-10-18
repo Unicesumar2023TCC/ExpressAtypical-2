@@ -5,9 +5,9 @@ const consign = require('consign');
 const cookieParser = require('cookie-parser');
 
 const api = express();
-const porta = 3000;
+const porta = 3002;
 
-api.use(cors({ origin: 'http://localhost:3001', credentials: true }));
+api.use(cors({ origin: '*', credentials: true }));
 api.use(bodyparser.json());
 api.use(bodyparser.urlencoded({ extended: true }));
 api.use(cookieParser());
@@ -17,5 +17,5 @@ consign()
     .into(api);
 
 api.listen(porta, () => {
-    console.log('API RUN EXPRESS');
+    console.log(`API RUN EXPRESS PORTA: ${porta}`);
 });
