@@ -90,7 +90,7 @@ module.exports = function(api){
             const user = await UserController.getAllActiveUsers(request.authId);
             response.json(user);
         } catch (error) {
-            response.status(500).json({ error: error.message });
+            response.status(401).json({ error: error.message });
         }
     });
 
@@ -108,7 +108,11 @@ module.exports = function(api){
     api.put('/user', upload.none(), async function(request, response){
         try {
             request.body.birthDate = new Date(request.body.birthDate);
-            request.body.password = bcrypt.hashSync(request.body.password, 10);
+
+            if(request.body.password){
+                request.body.password = bcrypt.hashSync(request.body.password, 10);
+            }
+            
             const data = await UserController.updateUser(request.body, request.authId);
             response.json(data);
         } catch (error) {

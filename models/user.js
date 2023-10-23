@@ -5,20 +5,42 @@ const prisma = new PrismaClient()
 module.exports = class User {
 
     static async getAllUsers(){
-        return await prisma.user.findMany({
+        const users = await prisma.user.findMany({
             where: {
                 deleted: false
             }
         });
+
+        users = users.map(user => {
+            const formattedTime = new Date(user.birthDate).toLocaleString('pt-BR');
+            const formattedTimePtBR = formattedTime.replace(',', ' às');
+            
+            return {
+                ...user,
+                birthDate: formattedTimePtBR
+            };
+        });
+    
+        return users;
     }
 
     static async getAllActiveUsers(){
-        return await prisma.user.findMany({
+        const users = await prisma.user.findMany({
             where: {
                 deleted: false,
                 status: 'ACTIVE',
             }
         });
+
+        const usersFormated = users.map(user => {
+            const formattedDate = new Date(user.birthDate).toLocaleDateString('pt-BR');
+            return {
+                ...user,
+                birthDate: formattedDate
+            };
+        });
+        
+        return usersFormated;
     }
 
     static async getActiveUserByEmail(email){
@@ -31,11 +53,14 @@ module.exports = class User {
     }
 
     static async getUserById(id){
-        return await prisma.user.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 id: parseInt(id),
             },
         });
+        
+        user.birthDate = new Date(user.birthDate).toISOString().split('T')[0];
+        return user;
     }
 
     static async insertNewUser(data){
@@ -50,20 +75,15 @@ module.exports = class User {
         })
     }
 
-    static async updateUser(data){
+    static async updateUser(data) {
+        const { id, ...updateData } = data;
+    
         return await prisma.user.update({
             where: {
-                id: parseInt(data.id),
+                id: parseInt(id),
             },
-            data: {
-                name: data.name,
-                email: data.email,
-                password: data.password,
-                phone: data.phone,
-                birthDate: data.birthDate,
-                status: data.status,
-            }
-        })
+            data: updateData,
+        });
     }
 
     static async deleteUserById(id){
