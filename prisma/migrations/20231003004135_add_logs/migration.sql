@@ -1,14 +1,14 @@
 -- AlterTable
-ALTER TABLE `category` ADD COLUMN `voiceUrl` VARCHAR(191) NULL;
+ALTER TABLE `Category` ADD COLUMN `voiceUrl` VARCHAR(191) NULL;
 
 -- AlterTable
-ALTER TABLE `profile` ADD COLUMN `type` ENUM('Kid', 'Responsible') NOT NULL DEFAULT 'Responsible';
+ALTER TABLE `Profile` ADD COLUMN `type` ENUM('Kid', 'Responsible') NOT NULL DEFAULT 'Responsible';
 
 -- AlterTable
-ALTER TABLE `user` ADD COLUMN `type` ENUM('Admin', 'Responsible') NOT NULL DEFAULT 'Responsible';
+ALTER TABLE `User` ADD COLUMN `type` ENUM('Admin', 'Responsible') NOT NULL DEFAULT 'Responsible';
 
 -- AlterTable
-ALTER TABLE `word` ADD COLUMN `voiceUrl` VARCHAR(191) NULL;
+ALTER TABLE `Word` ADD COLUMN `voiceUrl` VARCHAR(191) NULL;
 
 -- CreateTable
 CREATE TABLE `Log` (
