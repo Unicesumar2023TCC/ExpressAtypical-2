@@ -26,6 +26,8 @@ module.exports = class Word {
             data: {
                 idCategory: parseInt(data.idCategory),
                 name: data.name,
+                imageUrl: data.imageUrl,
+                voiceUrl: data.voiceUrl
             }
         })
     }
@@ -49,6 +51,8 @@ module.exports = class Word {
             data: {
                 name: data.name,
                 status: data.status,
+                imageUrl: data.imageUrl,
+                voiceUrl: data.voiceUrl
             }
         })
     }

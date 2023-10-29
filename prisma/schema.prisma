@@ -28,6 +28,7 @@ model Profile {
   id           Int       @id @default(autoincrement())
   user         User      @relation(fields: [idUser], references: [id])
   idUser       Int
+  reward      Reward[]
   name         String    @db.VarChar(50)
   birthDate    DateTime
   status       Status    @default(ACTIVE)
@@ -43,7 +44,8 @@ model Category {
   idUser       Int
   word         Word[]
   name         String    @db.VarChar(50)
-  voiceUrl     String?   @db.VarChar(50)
+  voiceUrl     String?   @db.VarChar(255)
+  imageUrl     String?   @db.VarChar(255)
   status       Status    @default(ACTIVE)
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
@@ -55,13 +57,20 @@ model Word {
   category      Category  @relation(fields: [idCategory], references: [id])
   idCategory    Int
   name          String    @db.VarChar(50)
-  voiceUrl      String?   @db.VarChar(50)
+  voiceUrl      String?   @db.VarChar(255)
+  imageUrl      String?   @db.VarChar(255)
   status        Status    @default(ACTIVE)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   deleted       Boolean   @default(false)
 }
 
+model Reward {
+  id            Int       @id @default(autoincrement())
+  profile         Profile      @relation(fields: [idProfile], references: [id])
+  idProfile       Int
+  //todo REST OF THE REWARD TABLE
+}
 
 model Log {
   id             Int       @id @default(autoincrement())

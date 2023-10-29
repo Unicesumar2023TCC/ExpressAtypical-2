@@ -1,7 +1,9 @@
 const WordModel = require('../models/word');
 const UserController = require('./user') 
 const CategoryController = require('./category') 
+const FilesController = require('./files');
 const Log = require('../models/log');
+
 
 module.exports = class Word {
 
@@ -22,7 +24,20 @@ module.exports = class Word {
                 throw new Error('Usuário não autorizado')
             }
 
-            return await WordModel.getWordsByCategoryId(id);
+            let words = await WordModel.getWordsByCategoryId(idCategory);
+
+           
+            words.forEach(async (word) => {
+                if(word.imageUrl){
+                    word.base64image = FilesController.fileToBase64(word.imageUrl);
+                }
+
+                if(word.voiceUrl){
+                    word.base64audio = await FilesController.fileToBase64(word.voiceUrl);
+                }
+            });
+
+            return words
         } catch (error) {
             throw new Error(`Erro ao buscar palavras por categoria: ${error.message}`);
         }
@@ -33,23 +48,36 @@ module.exports = class Word {
             if (!data.name) {
                 throw new Error('Nome da palavra é obrigatório');
             }
-
-           if(await this.checkIfWordExist(data)){
+    
+            if(await this.checkIfWordExist(data)){
                 throw new Error('Palavra já existe para esta categoria');
+            } 
+    
+            data.imagePath = null;
+            if (data.image) {
+                data.imageUrl = await FilesController.saveImageBase64(data.image)
+            }
+    
+            data.audioPath = null;
+            if (data.audio) {
+                data.voiceUrl = await FilesController.saveAudioBase64(data.audio)
             }
     
             let response = await WordModel.insertNewWord(data);
+    
             Log.addLog({
                 origem: 'Word',
                 action: 'create',
                 idReference: response.id,
                 idUser: data.idUser
-            })
-            return response
+            });
+    
+            return response;
         } catch (error) {
             throw new Error(`Erro ao inserir nova palavra: ${error.message}`);
         }
     }
+    
 
     static async checkIfWordExist(data){
         return Boolean((await WordModel.getWordByNameAndCategory(data)).length)
@@ -66,6 +94,16 @@ module.exports = class Word {
 
             if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
+            }
+
+            data.imagePath = null;
+            if (data.image) {
+                data.imageUrl = await FilesController.saveImageBase64(data.image)
+            }
+    
+            data.audioPath = null;
+            if (data.audio) {
+                data.voiceUrl = await FilesController.saveAudioBase64(data.audio)
             }
 
             let response = await WordModel.updateWordById(data);

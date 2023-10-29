@@ -38,6 +38,8 @@ module.exports = class Category {
             data: {
                 idUser: parseInt(data.idUser),
                 name: data.name,
+                imageUrl: data.imageUrl,
+                voiceUrl: data.voiceUrl
             }
         })
     }
@@ -50,6 +52,8 @@ module.exports = class Category {
             data: {
                 name: data.name,
                 status: data.status,
+                imageUrl: data.imageUrl,
+                voiceUrl: data.voiceUrl
             }
         })
     }

@@ -1,6 +1,7 @@
 const CategoryModel = require('../models/category');
 const UserController = require('./user') 
 const Log = require('../models/log');
+const FilesController = require('./files')
 
 module.exports = class Category {
 
@@ -20,7 +21,19 @@ module.exports = class Category {
                 throw new Error('Usuário não autorizado')
             }
 
-            return await CategoryModel.getCategoriesByUserId(id);
+            let categories = await CategoryModel.getCategoriesByUserId(id);
+
+            categories.forEach(async (category) => {
+                if(category.imageUrl != null){
+                    category.base64image = await FilesController.fileToBase64(category.imageUrl);
+                }
+
+                if(category.voiceUrl){
+                    category.base64audio = await FilesController.fileToBase64(category.voiceUrl);
+                }
+            });
+
+            return categories
         } catch (error) {
             throw new Error(`Erro ao buscar categorias: ${error.message}`);
         }
@@ -33,8 +46,17 @@ module.exports = class Category {
                 throw new Error('ID do usuário é obrigatório');
             }
 
-            return await CategoryModel.getCategorieById(id);
+            let category = await CategoryModel.getCategorieById(id);
             
+            if(category.imageUrl){
+                category.base64image = FilesController.fileToBase64(category.imageUrl)
+            }
+
+            if(category.voiceUrl){
+                category.base64audio = FilesController.fileToBase64(category.voiceUrl)
+            }
+
+            return category
         } catch (error) {
             throw new Error(`Erro ao buscar categorias: ${error.message}`);
         }
@@ -52,6 +74,16 @@ module.exports = class Category {
         }
 
         try {
+
+            data.imagePath = null;
+            if (data.image) {
+                data.imageUrl = await FilesController.saveImageBase64(data.image)
+            }
+    
+            data.audioPath = null;
+            if (data.audio) {
+                data.voiceUrl = await FilesController.saveAudioBase64(data.audio)
+            }
             
             let response = await CategoryModel.insertNewCategory(data);
             Log.addLog({
@@ -88,6 +120,15 @@ module.exports = class Category {
                 throw new Error('Usuário não autorizado')
             }
             
+            data.imagePath = null;
+            if (data.image) {
+                data.imageUrl = await FilesController.saveImageBase64(data.image)
+            }
+    
+            data.audioPath = null;
+            if (data.audio) {
+                data.voiceUrl = await FilesController.saveAudioBase64(data.audio)
+            }
 
             let response = await CategoryModel.updateCategory(data);
             Log.addLog({

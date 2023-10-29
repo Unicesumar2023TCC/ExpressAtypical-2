@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const api = express();
 const porta = 3002;
 
-api.use(cors({ origin: '*', credentials: true }));
+api.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 api.use(bodyparser.json());
 api.use(bodyparser.urlencoded({ extended: true }));
 api.use(cookieParser());
