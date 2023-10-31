@@ -5,27 +5,27 @@
             "Palavras": [
             {
                 "nome": "Alegria",
-                "img": "https://expressatypical.inffus.com.br/assets/img/Sentimentos/Alegria.png"
+                "img": "/assets/img/Sentimentos/Alegria.png"
             },
             {
                 "nome": "Medo",
-                "img": "https://expressatypical.inffus.com.br/assets/img/Sentimentos/Medo.png"
+                "img": "/assets/img/Sentimentos/Medo.png"
             },
             {
                 "nome": "Nojo",
-                "img": "https://expressatypical.inffus.com.br/assets/img/Sentimentos/Nojo.png"
+                "img": "/assets/img/Sentimentos/Nojo.png"
             },
             {
                 "nome": "Raiva",
-                "img": "https://expressatypical.inffus.com.br/assets/img/Sentimentos/Raiva.png"
+                "img": "/assets/img/Sentimentos/Raiva.png"
             },
             {
                 "nome": "Tédio",
-                "img": "https://expressatypical.inffus.com.br/assets/img/Sentimentos/Tédio.png"
+                "img": "/assets/img/Sentimentos/Tédio.png"
             },
             {
                 "nome": "Tristeza",
-                "img": "https://expressatypical.inffus.com.br/assets/img/Sentimentos/Tristeza.png"
+                "img": "/assets/img/Sentimentos/Tristeza.png"
             }
             ]
         },
@@ -34,27 +34,27 @@
                 "Palavras": [
                 {
                     "nome": "Avó",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Pessoas/Avó.png"
+                    "img": "/assets/img/Pessoas/Avó.png"
                 },
                 {
                     "nome": "Avô",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Pessoas/Avô.png"
+                    "img": "/assets/img/Pessoas/Avô.png"
                 },
                 {
                     "nome": "Irmã",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Pessoas/Irmã.png"
+                    "img": "/assets/img/Pessoas/Irmã.png"
                 },
                 {
                     "nome": "Irmão",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Pessoas/Irmão.png"
+                    "img": "/assets/img/Pessoas/Irmão.png"
                 },
                 {
                     "nome": "Mãe",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Pessoas/Mãe.png"
+                    "img": "/assets/img/Pessoas/Mãe.png"
                 },
                 {
                     "nome": "Pai",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Pessoas/Pai.png"
+                    "img": "/assets/img/Pessoas/Pai.png"
                 }
                 ]
             },
@@ -63,27 +63,27 @@
                 "Palavras": [
                 {
                     "nome": "Água",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Comidas/Água.png"
+                    "img": "/assets/img/Comidas/Água.png"
                 },
                 {
                     "nome": "Batata frita",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Comidas/Batata frita.png"
+                    "img": "/assets/img/Comidas/Batata frita.png"
                 },
                 {
                     "nome": "Hot-dog",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Comidas/Hot-dog.png"
+                    "img": "/assets/img/Comidas/Hot-dog.png"
                 },
                 {
                     "nome": "Pipoca",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Comidas/Pipoca.png"
+                    "img": "/assets/img/Comidas/Pipoca.png"
                 },
                 {
                     "nome": "Refrigerante",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Comidas/Refrigerante.png"
+                    "img": "/assets/img/Comidas/Refrigerante.png"
                 },
                 {
                     "nome": "Suco",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Comidas/Suco.png"
+                    "img": "/assets/img/Comidas/Suco.png"
                 }
                 ]
             },
@@ -92,27 +92,27 @@
                 "Palavras": [
                 {
                     "nome": "Barriga",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Corpo/Barriga.png"
+                    "img": "/assets/img/Corpo/Barriga.png"
                 },
                 {
                     "nome": "Cabeça",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Corpo/Cabeça.png"
+                    "img": "/assets/img/Corpo/Cabeça.png"
                 },
                 {
                     "nome": "Costas",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Corpo/Costas.png"
+                    "img": "/assets/img/Corpo/Costas.png"
                 },
                 {
                     "nome": "Pé",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Corpo/Pé.png"
+                    "img": "/assets/img/Corpo/Pé.png"
                 },
                 {
                     "nome": "Perna",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Corpo/Perna.png"
+                    "img": "/assets/img/Corpo/Perna.png"
                 },
                 {
                     "nome": "Pescoço",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Corpo/Pescoço.png"
+                    "img": "/assets/img/Corpo/Pescoço.png"
                 }
                 ]
             },
@@ -121,27 +121,27 @@
                 "Palavras": [
                 {
                     "nome": "Calor e chuvoso",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Temperatura/Calor e chuvoso.png"
+                    "img": "/assets/img/Temperatura/Calor e chuvoso.png"
                 },
                 {
                     "nome": "Calor",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Temperatura/Calor.png"
+                    "img": "/assets/img/Temperatura/Calor.png"
                 },
                 {
                     "nome": "Chuvoso",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Temperatura/Chuvoso.png"
+                    "img": "/assets/img/Temperatura/Chuvoso.png"
                 },
                 {
                     "nome": "Frio",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Temperatura/Frio.png"
+                    "img": "/assets/img/Temperatura/Frio.png"
                 },
                 {
                     "nome": "Nebuloso",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Temperatura/Nebuloso.png"
+                    "img": "/assets/img/Temperatura/Nebuloso.png"
                 },
                 {
                     "nome": "Tempestade",
-                    "img": "https://expressatypical.inffus.com.br/assets/img/Temperatura/Tempestade.png"
+                    "img": "/assets/img/Temperatura/Tempestade.png"
                 }
             ]
         }  

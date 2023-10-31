@@ -3,10 +3,21 @@ const upload = multer();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
-const DashboardController = require('../controllers/dashboard');
+const path = require('path');
+const base64Img = require('base64-img');
+
+function getBase64FromImage(imgPath) {
+    return new Promise((resolve, reject) => {
+        base64Img.base64(imgPath, (err, data) => {
+            if (err) reject(err);
+            else resolve(data);
+        });
+    });
+}
 
 module.exports = function(api){
-
+    
+    const DashboardController = require('../controllers/dashboard');
     const UserController = require('../controllers/user');
     const WordController = require('../controllers/word');
     const ProfileController = require('../controllers/profile');
@@ -20,8 +31,23 @@ module.exports = function(api){
     //get initial config for categories and words
     api.get('/config', async function (request, response){
         const config = fs.readFileSync('config/config.json').toString();
-        response.json(JSON.parse(config));
-    })
+        const configJson = JSON.parse(config);
+    
+        // Iterar sobre as categorias e palavras
+        for (const categoria of configJson.categorias) {
+            for (const palavra of categoria.Palavras) {
+                const imgPath = path.join(__dirname, '..', palavra.img);
+                try {
+                    const base64Data = await getBase64FromImage(imgPath);
+                    palavra.imgBase64 = base64Data;
+                } catch (err) {
+                    console.error(`Erro ao obter base64 para ${palavra.nome}:`, err);
+                }
+            }
+        }
+    
+        response.json(configJson);
+    });
       
     
     //add new user
