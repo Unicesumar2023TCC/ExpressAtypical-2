@@ -69,7 +69,12 @@ model Reward {
   id            Int       @id @default(autoincrement())
   profile         Profile      @relation(fields: [idProfile], references: [id])
   idProfile       Int
-  //todo REST OF THE REWARD TABLE
+  reward        String    @db.VarChar(50)
+  dateEnd       DateTime    
+  status        Status    @default(ACTIVE)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deleted       Boolean   @default(false)
 }
 
 model Log {

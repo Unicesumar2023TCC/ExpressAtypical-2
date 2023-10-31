@@ -11,6 +11,7 @@ module.exports = function(api){
     const ProfileController = require('../controllers/profile');
     const CategoryController = require('../controllers/category');
     const LogController = require('../controllers/log');
+    const RewardController = require('../controllers/reward');
 
     const verifyToken = require('../middlewares/auth');
 
@@ -255,6 +256,49 @@ module.exports = function(api){
     api.delete('/word/:id?', upload.none(), async function(request, response){
         try {
             const data = await WordController.deleteWordById(request.params.id, request.authId);
+            response.json(data);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    });
+    
+
+
+    //get reward
+    api.get('/reward/:id?', async function (request, response){
+        try {
+            const reward = await RewardController.getRewardsByUserId(request.params.id, request.authId);
+            response.json(reward);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    })
+
+    //add new reward
+    api.post('/reward', upload.none(), async function(request, response){
+        try {
+            request.body.idUser = request.authId;
+            const data = await RewardController.insertNewReward(request.body);
+            response.json(data);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    });
+
+    //edit reward
+    api.put('/reward', upload.none(), async function(request, response){
+        try {
+            const data = await RewardController.updateReward(request.body, request.authId);
+            response.json(data);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    });
+
+    //delete reward
+    api.delete('/reward/:id?', upload.none(), async function(request, response){
+        try {
+            const data = await RewardController.deleteRewardById(request.params.id, request.authId);
             response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });

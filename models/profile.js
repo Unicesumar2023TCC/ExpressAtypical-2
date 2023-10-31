@@ -14,6 +14,10 @@ module.exports = class Profile {
         });
     }
 
+    static async getProfileById(id){
+        return await prisma.profile.findUnique(id)
+    }
+
     static async insertNewProfile(data){
         return await prisma.profile.create({
             data: {
