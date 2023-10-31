@@ -90,7 +90,7 @@ module.exports = class Profile {
             
             const authenticatedUser = await UserController.getUserById(authenticatedId)
 
-            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+            if(authenticatedUser.id != authenticatedId && authenticatedUser.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
 

@@ -1,10 +1,10 @@
-const RewardModel = require('../models/reward');
+const GameHistoryModel = require('../models/gameHistory');
 const UserController = require('./user') 
 const Log = require('../models/log');
 
-module.exports = class Reward {
+module.exports = class GameHistory {
 
-    static async getRewardsByUserId(id, authenticatedId){
+    static async getGameHistoriesByUserId(id, authenticatedId){
         try {
             if (!authenticatedId) {
                 throw new Error('Usuário não autenticado');
@@ -16,82 +16,90 @@ module.exports = class Reward {
             
             const authenticatedUser = await UserController.getUserById(authenticatedId)
 
-            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+            if(authenticatedUser.id != authenticatedId && authenticatedUser.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
 
-            return await RewardModel.getRewardsByProfileId(id);
+            return await GameHistoryModel.getGameHistoriesByProfileId(id);
             
         } catch (error) {
             throw new Error(`Erro ao buscar perfis: ${error.message}`);
         }
     }
 
-    static async insertNewReward(data){
-        if (!data.reward) {
-            throw new Error('Recompensa vázia');
+    static async insertNewGameHistory(data, authenticatedId){
+        if (!data.level) {
+            throw new Error('Nível vazio');
+        }
+
+        if (!data.score) {
+            throw new Error('Pontuação vazia');
+        }
+
+        if (!data.date) {
+            throw new Error('Data vazia');
         }
 
         if (!data.idProfile) {
-            throw new Error('Usuário inválido');
+            throw new Error('Perfil inválido');
         }
 
 
         try {
-            let response = await RewardModel.insertNewReward(data);
+            let response = await GameHistoryModel.insertNewGameHistory(data);
             
             Log.addLog({
-                origem: 'Reward',
+                origem: 'GameHistory',
                 action: 'create',
                 idReference: response.id,
-                idUser: data.idProfile
+                idUser: authenticatedId
             })
             return response
         } catch (error) {
-            throw new Error(`Erro ao inserir novo recompensa: ${error.message}`);
+            throw new Error(`Erro ao inserir novo histórico de jogo: ${error.message}`);
         }
     }
 
-    static async updateReward(data, authenticatedId){
+    static async updateGameHistory(data, authenticatedId){
         try {
             if (!authenticatedId) {
                 throw new Error('Usuário não autenticado');
             }
 
-            let response = await RewardModel.updateReward(data);
+            let response = await GameHistoryModel.updateGameHistory(data);
             Log.addLog({
-                origem: 'Reward',
+                origem: 'GameHistory',
                 action: 'update',
                 idReference: response.id,
                 idUser: authenticatedId
             })
             return response
         } catch (error) {
-            throw new Error(`Erro ao atualizar recompensa: ${error.message}`);
+            throw new Error(`Erro ao atualizar histórico de jogo: ${error.message}`);
         }
     }
 
-    static async deleteRewardById(id, authenticatedId){
+    static async deleteGameHistoryById(id, authenticatedId){
         try {
             if (!authenticatedId) {
                 throw new Error('Usuário não autenticado');
             }
 
             if (!id) {
-                throw new Error('ID da recompensa é obrigatório');
+                throw new Error('ID da histórico de jogo é obrigatório');
             }
             
 
-            let response = await RewardModel.deleteRewardById(id);
+            let response = await GameHistoryModel.deleteGameHistoryById(id);
             Log.addLog({
-                origem: 'Reward',
+                origem: 'GameHistory',
                 action: 'delete',
                 idReference: response.id,
                 idUser: authenticatedId
             })
             return response
         } catch (error) {
-            throw new Error(`Erro ao excluir recompensa: ${error.message}`);
+            throw new Error(`Erro ao excluir histórico de jogo: ${error.message}`);
         }
     }
 }

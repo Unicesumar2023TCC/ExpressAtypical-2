@@ -5,12 +5,15 @@ const prisma = new PrismaClient()
 module.exports = class User {
 
     static async getAllUsers(){
-        const users = await prisma.user.findMany({
+        let users = await prisma.user.findMany({
             where: {
                 deleted: false
+            },
+            select: {
+                password: false,
             }
         });
-
+    
         users = users.map(user => {
             const formattedTime = new Date(user.birthDate).toLocaleString('pt-BR');
             const formattedTimePtBR = formattedTime.replace(',', ' às');
@@ -29,6 +32,18 @@ module.exports = class User {
             where: {
                 deleted: false,
                 status: 'ACTIVE',
+            },
+            select: {
+                id: true, 
+                name: true,
+                email: true,
+                birthDate: true,
+                phone: true,
+                status: true,
+                type: true,
+                createdAt: true,
+                updatedAt: true,
+                deleted: true,
             }
         });
 
@@ -57,6 +72,18 @@ module.exports = class User {
             where: {
                 id: parseInt(id),
             },
+            select: {
+                id: true, 
+                name: true,
+                email: true,
+                birthDate: true,
+                phone: true,
+                status: true,
+                type: true,
+                createdAt: true,
+                updatedAt: true,
+                deleted: true,
+            }
         });
         
         user.birthDate = new Date(user.birthDate).toISOString().split('T')[0];
@@ -104,5 +131,45 @@ module.exports = class User {
                 email: email
             }
         });
+    }
+
+    static async countAllUsers() {
+        const count = await prisma.user.count();
+        return count;
+    }
+
+    static async countLastUsers() {
+        const twoWeeksAgo = new Date();
+        twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14); // Subtrai 14 dias
+    
+        const count = await prisma.user.count({
+            where: {
+                createdAt: {
+                    gte: twoWeeksAgo // "gte" significa "greater than or equal to" (maior ou igual a)
+                }
+            }
+        });
+    
+        return count;
+    }
+
+    static async getLastUsers() {
+        const twoWeeksAgo = new Date();
+        twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14); // Subtrai 14 dias
+    
+        const count = await prisma.user.findMany({
+            where: {
+                createdAt: {
+                    gte: twoWeeksAgo // "gte" significa "greater than or equal to" (maior ou igual a)
+                }
+            },
+            select: {
+                email: true,
+                name: true,
+                createdAt: true
+            }
+        });
+    
+        return count;
     }
 }

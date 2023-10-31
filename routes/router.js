@@ -3,6 +3,7 @@ const upload = multer();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+const DashboardController = require('../controllers/dashboard');
 
 module.exports = function(api){
 
@@ -12,6 +13,7 @@ module.exports = function(api){
     const CategoryController = require('../controllers/category');
     const LogController = require('../controllers/log');
     const RewardController = require('../controllers/reward');
+    const GameHistoryController = require('../controllers/gameHistory');
 
     const verifyToken = require('../middlewares/auth');
 
@@ -306,11 +308,65 @@ module.exports = function(api){
     });
     
 
+
+    //get gameHistory
+    api.get('/gameHistory/:id?', async function (request, response){
+        try {
+            const gameHistory = await GameHistoryController.getGameHistoriesByUserId(request.params.id, request.authId);
+            response.json(gameHistory);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    })
+
+    //add new gameHistory
+    api.post('/gameHistory', upload.none(), async function(request, response){
+        try {
+            request.body.idUser = request.authId;
+            const data = await GameHistoryController.insertNewGameHistory(request.body, request.authId);
+            response.json(data);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    });
+
+    //edit gameHistory
+    api.put('/gameHistory', upload.none(), async function(request, response){
+        try {
+            const data = await GameHistoryController.updateGameHistory(request.body, request.authId);
+            response.json(data);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    });
+
+    //delete gameHistory
+    api.delete('/gameHistory/:id?', upload.none(), async function(request, response){
+        try {
+            const data = await GameHistoryController.deleteGameHistoryById(request.params.id, request.authId);
+            response.json(data);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    });
+
     //get logs
     api.get('/logs', async function (request, response){
         try {
             const log = await LogController.getLogs();
             response.json(log);
+        } catch (error) {
+            response.status(500).json({ error: error.message });
+        }
+    })
+
+
+
+     //get dashboard
+     api.get('/dashboard', async function (request, response){
+        try {
+            const data = await DashboardController.getDashboardData();
+            response.json(data);
         } catch (error) {
             response.status(500).json({ error: error.message });
         }

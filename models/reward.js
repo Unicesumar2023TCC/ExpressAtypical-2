@@ -14,6 +14,7 @@ module.exports = class Reward {
     }
 
     static async insertNewReward(data){
+        data.dateEnd = new Date(data.dateEnd);
         return await prisma.reward.create({
             data: {
                 idProfile: parseInt(data.idProfile),
@@ -24,6 +25,7 @@ module.exports = class Reward {
     }
 
     static async updateReward(data){
+        data.dateEnd = new Date(data.dateEnd);
         return await prisma.reward.update({
             where: {
                 id: parseInt(data.id),

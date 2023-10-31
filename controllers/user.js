@@ -181,4 +181,31 @@ module.exports = class User {
             throw new Error(`Erro ao verificar o login do usuário: ${error.message}`);
         }
     }
+
+    static async getCountAllUsers(){
+        try {
+            return await UsersModel.countAllUsers();
+        } catch (error) {
+            console.log(error)
+            throw new Error(`Erro ao buscar usuários: ${error.message}`);
+        }
+    }
+
+    static async getCountLastUsers(){
+        try {
+            return await UsersModel.countLastUsers();
+        } catch (error) {
+            console.log(error)
+            throw new Error(`Erro ao buscar usuários: ${error.message}`);
+        }
+    }
+
+    static async getLastUsers(){
+        try {
+            return await UsersModel.getLastUsers();
+        } catch (error) {
+            console.log(error)
+            throw new Error(`Erro ao buscar usuários: ${error.message}`);
+        }
+    }
 }

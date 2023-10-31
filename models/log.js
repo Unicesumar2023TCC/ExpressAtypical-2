@@ -33,4 +33,9 @@ module.exports = class Log {
         });
     }
 
+    static async countLogs() {
+        const count = await prisma.log.count();
+        return count;
+    }
+
 }

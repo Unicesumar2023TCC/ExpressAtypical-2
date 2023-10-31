@@ -29,6 +29,7 @@ model Profile {
   user         User      @relation(fields: [idUser], references: [id])
   idUser       Int
   reward      Reward[]
+  gameHistory      GameHistory[]
   name         String    @db.VarChar(50)
   birthDate    DateTime
   status       Status    @default(ACTIVE)
@@ -72,6 +73,18 @@ model Reward {
   reward        String    @db.VarChar(50)
   dateEnd       DateTime    
   status        Status    @default(ACTIVE)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deleted       Boolean   @default(false)
+}
+
+model GameHistory {
+  id            Int       @id @default(autoincrement())
+  profile         Profile      @relation(fields: [idProfile], references: [id])
+  idProfile       Int
+  level         String    @db.VarChar(50)
+  date          DateTime    
+  score         String    @db.VarChar(50)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   deleted       Boolean   @default(false)
