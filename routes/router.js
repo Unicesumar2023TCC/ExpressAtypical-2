@@ -76,7 +76,7 @@ module.exports = function(api){
                         // Adicione o token ao cookie
                         response.cookie('jwt', token, { maxAge: 7 * 24 * 60 * 60 * 1000, httpOnly: false }); // MaxAge define a validade em milissegundos
     
-                        response.json({ token: token });
+                        response.json({ token: token, name: data[0].name });
                     } else {
                         response.json('login incorreto');
                     }
