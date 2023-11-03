@@ -1,149 +1,342 @@
 {
     "categorias": [
-        {
-            "nome": "Sentimentos",
+      {
+        "nome": "Sentimentos",
+        "img": "/assets/img/Sentimentos/Alegria.png",
+        "Palavras": [
+          {
+            "nome": "Alegria",
+            "img": "/assets/img/Sentimentos/Alegria.png"
+          },
+          {
+            "nome": "Medo",
+            "img": "/assets/img/Sentimentos/Medo.png"
+          },
+          {
+            "nome": "Nojo",
+            "img": "/assets/img/Sentimentos/Nojo.png"
+          },
+          {
+            "nome": "Raiva",
+            "img": "/assets/img/Sentimentos/Raiva.png"
+          },
+          {
+            "nome": "Tedio",
+            "img": "/assets/img/Sentimentos/Tedio.png"
+          },
+          {
+            "nome": "Tristeza",
+            "img": "/assets/img/Sentimentos/Tristeza.png"
+          },
+          {
+            "nome": "Sono",
+            "img": "/assets/img/Sentimentos/Sono.png"
+          }
+        ]
+      },
+          {
+            "nome": "Pessoas",
+            "img": "/assets/img/Pessoas/Avó.png",
             "Palavras": [
-            {
-                "nome": "Alegria",
-                "img": "/assets/img/Sentimentos/Alegria.png"
-            },
-            {
-                "nome": "Medo",
-                "img": "/assets/img/Sentimentos/Medo.png"
-            },
-            {
-                "nome": "Nojo",
-                "img": "/assets/img/Sentimentos/Nojo.png"
-            },
-            {
-                "nome": "Raiva",
-                "img": "/assets/img/Sentimentos/Raiva.png"
-            },
-            {
-                "nome": "Tédio",
-                "img": "/assets/img/Sentimentos/Tédio.png"
-            },
-            {
-                "nome": "Tristeza",
-                "img": "/assets/img/Sentimentos/Tristeza.png"
-            }
+              {
+                "nome": "Avó",
+                "img": "/assets/img/Pessoas/Avó.png"
+              },
+              {
+                "nome": "Avô",
+                "img": "/assets/img/Pessoas/Avô.png"
+              },
+              {
+                "nome": "Irmã",
+                "img": "/assets/img/Pessoas/Irma.png"
+              },
+              {
+                "nome": "Irmão",
+                "img": "/assets/img/Pessoas/Irmao.png"
+              },
+              {
+                "nome": "Mãe",
+                "img": "/assets/img/Pessoas/Mae.png"
+              },
+              {
+                "nome": "Pai",
+                "img": "/assets/img/Pessoas/Pai.png"
+              }
             ]
-        },
-            {
-                "nome": "Pessoas",
-                "Palavras": [
-                {
-                    "nome": "Avó",
-                    "img": "/assets/img/Pessoas/Avó.png"
-                },
-                {
-                    "nome": "Avô",
-                    "img": "/assets/img/Pessoas/Avô.png"
-                },
-                {
-                    "nome": "Irmã",
-                    "img": "/assets/img/Pessoas/Irmã.png"
-                },
-                {
-                    "nome": "Irmão",
-                    "img": "/assets/img/Pessoas/Irmão.png"
-                },
-                {
-                    "nome": "Mãe",
-                    "img": "/assets/img/Pessoas/Mãe.png"
-                },
-                {
-                    "nome": "Pai",
-                    "img": "/assets/img/Pessoas/Pai.png"
-                }
-                ]
-            },
-            {
-                "nome": "Comida e bebida",
-                "Palavras": [
-                {
-                    "nome": "Água",
-                    "img": "/assets/img/Comidas/Água.png"
-                },
-                {
-                    "nome": "Batata frita",
-                    "img": "/assets/img/Comidas/Batata frita.png"
-                },
-                {
-                    "nome": "Hot-dog",
-                    "img": "/assets/img/Comidas/Hot-dog.png"
-                },
-                {
-                    "nome": "Pipoca",
-                    "img": "/assets/img/Comidas/Pipoca.png"
-                },
-                {
-                    "nome": "Refrigerante",
-                    "img": "/assets/img/Comidas/Refrigerante.png"
-                },
-                {
-                    "nome": "Suco",
-                    "img": "/assets/img/Comidas/Suco.png"
-                }
-                ]
-            },
-                {
-                "nome": "Parte do corpo",
-                "Palavras": [
-                {
-                    "nome": "Barriga",
-                    "img": "/assets/img/Corpo/Barriga.png"
-                },
-                {
-                    "nome": "Cabeça",
-                    "img": "/assets/img/Corpo/Cabeça.png"
-                },
-                {
-                    "nome": "Costas",
-                    "img": "/assets/img/Corpo/Costas.png"
-                },
-                {
-                    "nome": "Pé",
-                    "img": "/assets/img/Corpo/Pé.png"
-                },
-                {
-                    "nome": "Perna",
-                    "img": "/assets/img/Corpo/Perna.png"
-                },
-                {
-                    "nome": "Pescoço",
-                    "img": "/assets/img/Corpo/Pescoço.png"
-                }
-                ]
-            },
-            {
-                "nome": "Temperatura",
-                "Palavras": [
-                {
-                    "nome": "Calor e chuvoso",
-                    "img": "/assets/img/Temperatura/Calor e chuvoso.png"
-                },
-                {
-                    "nome": "Calor",
-                    "img": "/assets/img/Temperatura/Calor.png"
-                },
-                {
-                    "nome": "Chuvoso",
-                    "img": "/assets/img/Temperatura/Chuvoso.png"
-                },
-                {
-                    "nome": "Frio",
-                    "img": "/assets/img/Temperatura/Frio.png"
-                },
-                {
-                    "nome": "Nebuloso",
-                    "img": "/assets/img/Temperatura/Nebuloso.png"
-                },
-                {
-                    "nome": "Tempestade",
-                    "img": "/assets/img/Temperatura/Tempestade.png"
-                }
+          },
+          {
+            "nome": "Comida",
+            "img": "/assets/img/Comidas/Salada.png",
+            "Palavras": [
+              {
+                "nome": "Arroz",
+                "img": "/assets/img/Comidas/Arroz.png"
+              },
+              {
+                "nome": "Feijao",
+                "img": "/assets/img/Comidas/Feijao.png"
+              },
+              {
+                "nome": "Macarrão",
+                "img": "/assets/img/Comidas/Macarrao.png"
+              },
+              {
+                "nome": "Carne",
+                "img": "/assets/img/Comidas/Carne.png"
+              },
+              {
+                "nome": "Frango",
+                "img": "/assets/img/Comidas/Frango.png"
+              },
+              {
+                "nome": "Salada",
+                "img": "/assets/img/Comidas/Salada.png"
+              }
             ]
-        }  
-    ]
-}
+          },
+          {
+            "nome": "Bebida",
+            "img": "/assets/img/Bebidas/Agua.png",
+            "Palavras": [
+              {
+                "nome": "Água",
+                "img": "/assets/img/Bebidas/Agua.png"
+              },
+              {
+                "nome": "Suco",
+                "img": "/assets/img/Bebidas/Suco.png"
+              },
+              {
+                "nome": "Café",
+                "img": "/assets/img/Bebidas/Cafe.png"
+              },
+              {
+                "nome": "Chá",
+                "img": "/assets/img/Bebidas/Cha.png"
+              },
+              {
+                "nome": "Refrigerante",
+                "img": "/assets/img/Bebidas/Refrigerante.png"
+              }
+            ]
+          },
+          {
+            "nome": "Lanches",
+            "img": "/assets/img/Lanches/Hamburguer.png",
+            "Palavras": [
+              {
+                "nome": "hamburguer",
+                "img": "/assets/img/Lanches/Hamburguer.png"
+              },
+              {
+                "nome": "pizza",
+                "img": "/assets/img/Lanches/Pizza.png"
+              },
+              {
+                "nome": "cachorro-quente",
+                "img": "/assets/img/Lanches/Cachorro-quente.png"
+              },
+              {
+                "nome": "Pipoca",
+                "img": "/assets/img/Lanches/Pipoca.png"
+              },
+              {
+                "nome": "Biscoito",
+                "img": "/assets/img/Lanches/Biscoito.png"
+              },
+              {
+                "nome": "chocolate",
+                "img": "/assets/img/Lanches/Chocolate.png"
+              },
+              {
+                "nome": "batata-frita",
+                "img": "/assets/img/Lanches/Batata-frita.png"
+              }
+            ]
+          },
+          {
+            "nome": "Frutas",
+            "img": "/assets/img/Frutas/Banana.png",
+            "Palavras": [
+              {
+                "nome": "Banana",
+                "img": "/assets/img/Frutas/Banana.png"
+              },
+              {
+                "nome": "Maca",
+                "img": "/assets/img/Frutas/Maca.png"
+              },
+              {
+                "nome": "Melancia",
+                "img": "/assets/img/Frutas/Melancia.png"
+              },
+              {
+                "nome": "Uva",
+                "img": "/assets/img/Frutas/Uva.png"
+              },
+              {
+                "nome": "Morango",
+                "img": "/assets/img/Frutas/Morango.png"
+              },
+              {
+                "nome": "Laranja",
+                "img": "/assets/img/Frutas/Laranja.png"
+              }
+            ]
+          },
+          {
+            "nome": "roupas",
+            "img": "/assets/img/Roupas/Camiseta.png",
+            "Palavras": [
+              {
+                "nome": "Camiseta",
+                "img": "/assets/img/Roupas/Camiseta.png"
+              },
+              {
+                "nome": "Calça",
+                "img": "/assets/img/Roupas/calca.png"
+              },
+              {
+                "nome": "Tênis",
+                "img": "/assets/img/Roupas/tenis.png"
+              },
+              {
+                "nome": "meias",
+                "img": "/assets/img/Roupas/meias.png"
+              },
+              {
+                "nome": "bermuda",
+                "img": "/assets/img/Roupas/bermuda.png"
+              },
+              {
+                "nome": "chinelo",
+                "img": "/assets/img/Roupas/chinelo.png"
+              },
+              {
+                "nome": "blusa",
+                "img": "/assets/img/Roupas/blusa.png"
+              },
+              {
+                "nome": "saia",
+                "img": "/assets/img/Roupas/saia.png"
+              }
+            ]
+          },
+          {
+            "nome": "Lugares",
+            "img": "/assets/img/Lugares/escola.png",
+            "Palavras": [
+              {
+                "nome": "escola",
+                "img": "/assets/img/Lugares/escola.png"
+              },
+              {
+                "nome": "hospital",
+                "img": "/assets/img/Lugares/hospital.png"
+              },
+              {
+                "nome": "cinema",
+                "img": "/assets/img/Lugares/cinema.png"
+              },
+              {
+                "nome": "parque",
+                "img": "/assets/img/Lugares/parque.png"
+              },
+              {
+                "nome": "parquinho",
+                "img": "/assets/img/Lugares/parquinho.png"
+              }
+            ]
+          },
+          {
+            "nome": "Animais",
+            "img": "/assets/img/Animais/cachorro.png",
+            "Palavras": [
+              {
+                "nome": "cachorro",
+                "img": "/assets/img/Animais/cachorro.png"
+              },
+              {
+                "nome": "gato",
+                "img": "/assets/img/Animais/gato.png"
+              },
+              {
+                "nome": "galinha",
+                "img": "/assets/img/Animais/galinha.png"
+              },
+              {
+                "nome": "cavalo",
+                "img": "/assets/img/Animais/cavalo.png"
+              },
+              {
+                "nome": "peixe",
+                "img": "/assets/img/Animais/peixe.png"
+              },
+              {
+                "nome": "Papagaio",
+                "img": "/assets/img/Animais/papagaio.png"
+              }
+            ]
+          },
+            {
+            "nome": "Parte do corpo",
+            "img": "/assets/img/Corpo/Barriga.png",
+            "Palavras": [
+              {
+                "nome": "Barriga",
+                "img": "/assets/img/Corpo/Barriga.png"
+              },
+              {
+                "nome": "Cabeça",
+                "img": "/assets/img/Corpo/Cabeça.png"
+              },
+              {
+                "nome": "Costas",
+                "img": "/assets/img/Corpo/Costas.png"
+              },
+              {
+                "nome": "Pé",
+                "img": "/assets/img/Corpo/Pé.png"
+              },
+              {
+                "nome": "Perna",
+                "img": "/assets/img/Corpo/Perna.png"
+              },
+              {
+                "nome": "Pescoço",
+                "img": "/assets/img/Corpo/Pescoço.png"
+              }
+            ]
+          },
+          {
+            "nome": "Temperatura",
+            "img": "/assets/img/Temperatura/Calor e chuvoso.png",
+            "Palavras": [
+              {
+                "nome": "Calor e chuvoso",
+                "img": "/assets/img/Temperatura/Calor e chuvoso.png"
+              },
+              {
+                "nome": "Calor",
+                "img": "/assets/img/Temperatura/Calor.png"
+              },
+              {
+                "nome": "Chuvoso",
+                "img": "/assets/img/Temperatura/Chuvoso.png"
+              },
+              {
+                "nome": "Frio",
+                "img": "/assets/img/Temperatura/Frio.png"
+              },
+              {
+                "nome": "Nebuloso",
+                "img": "/assets/img/Temperatura/Nebuloso.png"
+              },
+              {
+                "nome": "Tempestade",
+                "img": "/assets/img/Temperatura/Tempestade.png"
+              }
+            ]
+          }  
+        ]
+      }

@@ -35,6 +35,15 @@ module.exports = function(api){
     
         // Iterar sobre as categorias e palavras
         for (const categoria of configJson.categorias) {
+
+            const imgPath = path.join(__dirname, '..', categoria.img);
+            try {
+                const base64Data = await getBase64FromImage(imgPath);
+                categoria.imgBase64 = base64Data;
+            } catch (err) {
+                console.error(`Erro ao obter base64 para ${categoria.nome}:`, err);
+            }
+
             for (const palavra of categoria.Palavras) {
                 const imgPath = path.join(__dirname, '..', palavra.img);
                 try {
