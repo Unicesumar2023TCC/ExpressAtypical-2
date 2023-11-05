@@ -4,10 +4,10 @@ const prisma = new PrismaClient()
 
 module.exports = class Category {
 
-    static async getCategoriesByProfileId(id){
+    static async getCategoriesByUserId(id){
         return await prisma.category.findMany({
             where: {
-                idProfile: parseInt(id),
+                idUser: parseInt(id),
                 deleted: false,
                 status: 'ACTIVE'
             }
@@ -22,10 +22,10 @@ module.exports = class Category {
         });
     }
 
-    static async getCategoryByNameAndProfile(data){
+    static async getCategoryByNameAndUser(data){
         return await prisma.category.findMany({
             where: {
-                idProfile: parseInt(data.idProfile),
+                idUser: parseInt(data.idUser),
                 name: data.name,
                 deleted: false,
                 status: 'ACTIVE'
@@ -37,6 +37,7 @@ module.exports = class Category {
         return await prisma.category.create({
             data: {
                 idProfile: parseInt(data.idProfile),
+                idUser: parseInt(data.idUser),
                 name: data.name,
                 imageUrl: data.imageUrl,
                 voiceUrl: data.voiceUrl
