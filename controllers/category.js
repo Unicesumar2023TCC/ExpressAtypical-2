@@ -1,11 +1,11 @@
 const CategoryModel = require('../models/category');
-const UserController = require('./user') 
+const ProfileController = require('./profile') 
 const Log = require('../models/log');
 const FilesController = require('./files')
 
 module.exports = class Category {
 
-    static async getCategoriesByUserId(id, authenticatedId){
+    static async getCategoriesByProfileId(id, authenticatedId){
         try {
             if (!authenticatedId) {
                 throw new Error('Usuário não autenticado');
@@ -15,13 +15,13 @@ module.exports = class Category {
                 throw new Error('ID do usuário é obrigatório');
             }
             
-            const authenticatedUser = await UserController.getUserById(authenticatedId)
+            const authenticatedProfile = await ProfileController.getProfileById(authenticatedId)
 
-            if(authenticatedUser.id != id && authenticatedUser.type != 'Admin'){
+            if(authenticatedProfile.id != id && authenticatedProfile.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
 
-            let categories = await CategoryModel.getCategoriesByUserId(id);
+            let categories = await CategoryModel.getCategoriesByProfileId(id);
 
             categories.forEach(async (category) => {
                 if(category.imageUrl != null){
@@ -90,7 +90,7 @@ module.exports = class Category {
                 origem: 'Category',
                 action: 'Create',
                 idReference: response.id,
-                idUser: data.idUser
+                idProfile: data.idProfile
             })
             return response
         } catch (error) {
@@ -100,7 +100,7 @@ module.exports = class Category {
 
     static async checkIfCategoryExist(data){
         try {
-            const category = await CategoryModel.getCategoryByNameAndUser(data);
+            const category = await CategoryModel.getCategoryByNameAndProfile(data);
             return category.length > 0;
         } catch (error) {
             throw new Error(`Erro ao verificar se a categoria já existe: ${error.message}`);
@@ -113,10 +113,10 @@ module.exports = class Category {
                 throw new Error('Usuário não autenticado');
             }
           
-            const authenticatedUser = await UserController.getUserById(authenticatedId)
+            const authenticatedProfile = await ProfileController.getProfileById(authenticatedId)
             const category = await Category.getcategorieById(data.id);
 
-            if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
+            if(authenticatedProfile.id != category.idProfile && authenticatedProfile.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
             
@@ -135,7 +135,7 @@ module.exports = class Category {
                 origem: 'Category',
                 action: 'update',
                 idReference: response.id,
-                idUser: authenticatedId
+                idProfile: authenticatedId
             })
             return response
         } catch (error) {
@@ -153,10 +153,10 @@ module.exports = class Category {
                 throw new Error('ID do usuário é obrigatório');
             }
             
-            const authenticatedUser = await UserController.getUserById(authenticatedId)
+            const authenticatedProfile = await ProfileController.getProfileById(authenticatedId)
             const category = await Category.getcategorieById(id);
 
-            if(authenticatedUser.id != category.idUser && authenticatedUser.type != 'Admin'){
+            if(authenticatedProfile.id != category.idProfile && authenticatedProfile.type != 'Admin'){
                 throw new Error('Usuário não autorizado')
             }
 
@@ -165,7 +165,7 @@ module.exports = class Category {
                 origem: 'Category',
                 action: 'delete',
                 idReference: response.id,
-                idUser: authenticatedId
+                idProfile: authenticatedId
             })
             return response
         } catch (error) {

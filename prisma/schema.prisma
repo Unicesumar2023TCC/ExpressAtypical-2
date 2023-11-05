@@ -10,7 +10,6 @@ datasource db {
 model User {
   id           Int       @id @default(autoincrement())
   profile      Profile[]
-  category     Category[]
   name         String    @db.VarChar(50)
   email        String    @db.VarChar(50)
   password     String    
@@ -30,6 +29,7 @@ model Profile {
   idUser       Int
   reward      Reward[]
   gameHistory      GameHistory[]
+  categori      Category[]
   name         String    @db.VarChar(50)
   birthDate    DateTime
   status       Status    @default(ACTIVE)
@@ -41,8 +41,8 @@ model Profile {
 
 model Category {
   id           Int       @id @default(autoincrement())
-  user         User      @relation(fields: [idUser], references: [id])
-  idUser       Int
+  profile      Profile      @relation(fields: [idProfile], references: [id])
+  idProfile       Int
   word         Word[]
   name         String    @db.VarChar(50)
   voiceUrl     String?   @db.VarChar(255)
